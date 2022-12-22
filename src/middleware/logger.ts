@@ -6,5 +6,6 @@ export function loggerMiddleware(
   next: any
 ) {
   console.log(`${request.method} ${request.path}`);
+  console.log(request.body);
   next();
 }

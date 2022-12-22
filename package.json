@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start:local": "NODE_ENV=local ts-node src/server.ts",
+    "refresh": "rm -rf node_modules npm i"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
