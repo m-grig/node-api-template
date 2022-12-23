@@ -2,6 +2,8 @@ import express from 'express';
 import { ApiResponse } from '../types';
 import { Test } from './types';
 
+const path = '/test';
+
 const buildResponse = (data: any, success: boolean): ApiResponse<any> => {
   return {
     success,
@@ -10,22 +12,17 @@ const buildResponse = (data: any, success: boolean): ApiResponse<any> => {
 };
 
 export class TestController {
-  public path = '/test';
   public router = express.Router();
 
-  private testResponse: ApiResponse<Test> = {
-    success: true,
-    data: { message: 'this is a test message', id: '123abcHexId' },
-  };
   private tests: Test[] = [{ message: 'this is a test message', id: '123abcHexId' }];
 
   constructor() {
     this.intializeRoutes();
   }
 
-  public intializeRoutes() {
-    this.router.get(this.path, this.getAllTests);
-    this.router.post(this.path, this.createTest);
+  intializeRoutes() {
+    this.router.get(path, this.getAllTests);
+    this.router.post(path, this.createTest);
   }
 
   getAllTests = (request: express.Request, response: express.Response): ApiResponse<Test[]> => {
