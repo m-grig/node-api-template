@@ -1,12 +1,12 @@
-import express from 'express';
-import { Controller } from '../base.endpoint/base.controller';
+import { Request, Response } from 'express';
+import { Controller } from '../base/base.controller';
 import { Test } from './types';
 // entity type = Test
 
 export class TestController extends Controller {
-  public path = '/test';
+  path = '/test';
 
-  getAll = (request: express.Request, response: express.Response) /*: ApiResponse<Test[]>*/ => {
-    super.getAll(request, response); // override call and perform additional logic
-  };
+  getAll(request: Request, response: Response) /*: ApiResponse<Test[]>*/ {
+    return super.getAll(request, response); // override call and perform additional logic
+  }
 }

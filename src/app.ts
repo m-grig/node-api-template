@@ -9,7 +9,7 @@ const initializeMiddlewares = (app: express.Application) => {
 };
 const initializeControllers = (app: express.Application, controllers: any[]) => {
   controllers.forEach((controller) => {
-    app.use('/', controller.router);
+    app.use(controller.path, controller.router);
   });
 };
 
