@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { expressApp } from './app';
-import { TestController } from './api/test/controller';
+import { TestController } from './api/example/controller';
 
 dotenv.config();
 const PORT = process.env.PORT;
